@@ -1,14 +1,14 @@
 <template>
   <div>
-		<!-- 箱的なイメージ　relativeにしておくことで中のabsolute要素の場所をいい感じに動かせる -->
+    <!-- 箱的なイメージ　relativeにしておくことで中のabsolute要素の場所をいい感じに動かせる -->
     <div class="relative">
       <!-- 初期画面で見えるサンプル画像がセットされている -->
-			<!-- 画像をアップした後もここにその画像を差し込むのでabsoluteで場所をいい感じにしてあげる -->
+      <!-- 画像をアップした後もここにその画像を差し込むのでabsoluteで場所をいい感じにしてあげる -->
       <img class="absolute" :src="uploadedImage" v-bind:style="{opacity:opa}" />
-			<!-- 画像アップフォーム
+      <!-- 画像アップフォーム
 			編集ボタンを押すとv-showによって表示される
 			上の画像セット場所に完全にかぶる
-			opacity:0で見えないけど押せる状態を実装 -->
+      opacity:0で見えないけど押せる状態を実装-->
       <input
         v-show="isEditable"
         class="headerImg"
@@ -54,8 +54,8 @@ export default {
     save: function() {
       this.isEditable = false;
       this.opa = 1.0;
-		},
-		// 画像を押すと呼ばれる
+    },
+    // 画像を押すと呼ばれる
     onFileChange(e) {
       let files = e.target.files;
       this.createImage(files[0]);
